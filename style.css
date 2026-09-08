@@ -1,0 +1,88 @@
+/* ==========================================================================
+   1. VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
+   ========================================================================== */
+:root {
+    --cor-fundo: #F4F4F4;
+    --cor-texto: #2C3E50;
+    --cor-texto-mutado: #1C232B;
+    --cor-principal: #9B2C2C;
+    --cor-destaque: #C53030;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   2. TIPOGRAFIA E ELEMENTOS REUTILIZÁVEIS
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header p {
+    font-family: 'Capriola', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--cor-texto);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* ==========================================================================
+   3. SEÇÃO: CABEÇALHO (HEADER)
+   ========================================================================== */
+header {
+    text-align: center;
+    padding: 3rem 1rem 1.5rem;
+    border-bottom: #1C232B 5px solid;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+header h1 {
+    color: var(--cor-principal);
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    color: var(--cor-texto-mutado);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   4. SEÇÃO: FORMULÁRIO (FORM)
+   ========================================================================== */
+#formulario-cardapio {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}

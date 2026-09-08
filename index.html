@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rango Certo - A plataforma que facilita o seu dia a dia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Rango Certo</h1>
+        <p>Sua decisão alimentar mais simples, rápida e saudável</p>
+    </header>
+
+    <div class="container">
+        <form id="formulario-cardapio">
+            <!-- 1. Categoria: Estilo Alimentar -->
+            <div>
+                <label for="dieta">Estilo Alimentar:</label>
+                <select id="dieta" name="dieta">
+                    <option value="any">Sem Restrições</option>
+                    <option value="balanced">Saudável e Balanceada</option>
+                    <option value="vegetarian">Vegetariano</option>
+                    <option value="vegan">Vegano</option>
+                    <option value="ketogenic">Cetogênico / Low Carb</option>
+                    <option value="high-protein">Hiperproteica / Bulking</option>
+                </select>
+            </div>
+
+            <!-- 2. Categoria: Restrições / Alergias -->
+            <div class="grupo-restricoes">
+                <label for="restricoes">Restrições e Alergias:</label>
+
+                <div>
+                    <input type="checkbox" id="gluten" name="restricoes" value="gluten">
+                    <label for="gluten">Sem Glúten</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="lactose" name="restricoes" value="dairy">
+                    <label for="lactose">Sem Lactose / Derivados</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="amendoim" name="restricoes" value="peanut">
+                    <label for="amendoim">Sem Amendoim</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="castanhas" name="restricoes" value="nuts">
+                    <label for="castanhas">Castanhas e oleaginosas</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="ovos" name="restricoes" value="eggs">
+                    <label for="ovos">Ovos</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="soja" name="restricoes" value="soy">
+                    <label for="soja">Soja</label>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="peixes" name="restricoes" value="fish">
+                    <label for="peixes">Peixes e crustáceos</label>
+                </div>
+
+            </div>
+
+            <div class="grupo-habilidade">
+                <label for="tempo-preparo">Nível de Habilidade / Tempo:</label>
+                <select id="tempo-preparo" name="tempoPreparo">
+                    <option value="20">Iniciante / Super rápido (Até 20 min)</option>
+                    <option value="45">Intermediário / Prático (Até 45 min)</option>
+                    <option value="any">Avançado / Pratos elaborados (Sem limite de tempo)</option>
+                </select>
+            </div>
+
+            <div class="grupo-quantidade">
+                <label for="quantidade">Quantidade de Refeições:</label>
+                <select id="quantidade" name="quantidade">
+                    <option value="1">1 Refeição</option>
+                    <option value="2">2 Refeições</option>
+                    <option value="3">3 Refeições</option>
+                    <option value="4">4 Refeições</option>
+                    <option value="5">5 Refeições</option>
+                </select>
+            </div>
+
+            <div class="grupo-botao">
+                <button type="submit">Gerar Cardápio</button>
+            </div>
+
+        </form>
+
+        <div id="resultado-cardapio">
+
+        </div>
+
+</body>
+
+</html>
