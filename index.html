@@ -9,7 +9,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Capriola&family=Poppins:wght@400;500;600;700&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -73,7 +72,6 @@
                     <input type="checkbox" id="peixes" name="restricoes" value="fish">
                     <label for="peixes">Peixes e crustáceos</label>
                 </div>
-
             </div>
 
             <div class="grupo-habilidade">
@@ -85,27 +83,40 @@
                 </select>
             </div>
 
-            <div class="grupo-quantidade">
-                <label for="quantidade">Quantidade de Refeições:</label>
-                <select id="quantidade" name="quantidade">
-                    <option value="1">1 Refeição</option>
-                    <option value="2">2 Refeições</option>
-                    <option value="3">3 Refeições</option>
-                    <option value="4">4 Refeições</option>
-                    <option value="5">5 Refeições</option>
-                </select>
+            <!-- 4. Categoria: Períodos / Tipos de Refeição -->
+            <div class="grupo-refeicoes">
+                <label>Refeições Desejadas:</label>
+                <div>
+                    <input type="checkbox" id="cafe-manha" name="tipoRefeicao" value="cafe-manha">
+                    <label for="cafe-manha">Café da Manhã</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="almoco" name="tipoRefeicao" value="almoco">
+                    <label for="almoco">Almoço</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="cafe-tarde" name="tipoRefeicao" value="cafe-tarde">
+                    <label for="cafe-tarde">Café da Tarde</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="jantar" name="tipoRefeicao" value="jantar">
+                    <label for="jantar">Jantar</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="ceia" name="tipoRefeicao" value="ceia">
+                    <label for="ceia">Ceia (Pós-Jantar)</label>
+                </div>
             </div>
 
             <div class="grupo-botao">
                 <button type="submit">Gerar Cardápio</button>
             </div>
-
         </form>
 
-        <div id="resultado-cardapio">
+        <div id="resultado-cardapio"></div>
+    </div>
 
-        </div>
-
+    <script src="script.js"></script>
 </body>
 
 </html>
