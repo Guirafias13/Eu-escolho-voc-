@@ -21,7 +21,6 @@
 
     <div class="container">
         <form id="formulario-cardapio">
-            <!-- 1. Categoria: Estilo Alimentar -->
             <div>
                 <label for="dieta">Estilo Alimentar:</label>
                 <select id="dieta" name="dieta">
@@ -34,7 +33,6 @@
                 </select>
             </div>
 
-            <!-- 2. Categoria: Restrições / Alergias -->
             <div class="grupo-restricoes">
                 <label for="restricoes">Restrições e Alergias:</label>
 
@@ -83,30 +81,31 @@
                 </select>
             </div>
 
-            <!-- 4. Categoria: Períodos / Tipos de Refeição -->
+            <!-- Categoria: Tipos de Refeição Desejadas -->
             <div class="grupo-refeicoes">
-                <label>Refeições Desejadas:</label>
+                <p class="titulo-secao">Quais refeições você quer gerar hoje?</p>
+
                 <div>
-                    <input type="checkbox" id="cafe-manha" name="tipoRefeicao" value="cafe-manha">
-                    <label for="cafe-manha">Café da Manhã</label>
+                    <input type="checkbox" id="ref-cafe" name="refeicoes" value="cafe-manha">
+                    <label for="ref-cafe">Café da Manhã</label>
                 </div>
+
                 <div>
-                    <input type="checkbox" id="almoco" name="tipoRefeicao" value="almoco">
-                    <label for="almoco">Almoço</label>
+                    <input type="checkbox" id="ref-almoco" name="refeicoes" value="almoco">
+                    <label for="ref-almoco">Almoço</label>
                 </div>
+
                 <div>
-                    <input type="checkbox" id="cafe-tarde" name="tipoRefeicao" value="cafe-tarde">
-                    <label for="cafe-tarde">Café da Tarde</label>
+                    <input type="checkbox" id="ref-tarde" name="refeicoes" value="cafe-tarde">
+                    <label for="ref-tarde">Lanche da Tarde</label>
                 </div>
+
                 <div>
-                    <input type="checkbox" id="jantar" name="tipoRefeicao" value="jantar">
-                    <label for="jantar">Jantar</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="ceia" name="tipoRefeicao" value="ceia">
-                    <label for="ceia">Ceia (Pós-Jantar)</label>
+                    <input type="checkbox" id="ref-jantar" name="refeicoes" value="jantar">
+                    <label for="ref-jantar">Jantar</label>
                 </div>
             </div>
+
 
             <div class="grupo-botao">
                 <button type="submit">Gerar Cardápio</button>
