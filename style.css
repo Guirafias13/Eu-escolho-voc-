@@ -2,10 +2,12 @@
    1. VARIÁVEIS E CONFIGURAÇÕES GLOBAIS
    ========================================================================== */
 :root {
-    --cor-fundo: #F4F4F4;
+    --cor-fundo: #FFFBF7;
+    /* Base off-white aconchegante */
     --cor-texto: #2C3E50;
-    --cor-texto-mutado: #1C232B;
+    --cor-texto-mutado: #4A5568;
     --cor-principal: #9B2C2C;
+    /* Cor vinho marcante da identidade */
     --cor-destaque: #C53030;
     --cor-card-fundo: #FFFFFF;
 }
@@ -19,6 +21,15 @@
 body {
     margin: 0;
     background-color: var(--cor-fundo);
+    /* PADRÃO DE GUARDANAPO DE COZINHA: Linhas translúcidas cruzadas em vermelho/vinho sutil */
+    background-image:
+        linear-gradient(90deg, rgba(155, 44, 44, 0.04) 2px, transparent 2px),
+        linear-gradient(rgba(155, 44, 44, 0.04) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(155, 44, 44, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(155, 44, 44, 0.02) 1px, transparent 1px);
+    background-size: 40px 40px, 40px 40px, 10px 10px, 10px 10px;
+    background-attachment: fixed;
+    /* Mantém o tecido estático ao rolar a página */
     color: var(--cor-texto);
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
@@ -35,7 +46,8 @@ h3,
 h4,
 h5,
 h6,
-header p {
+header p,
+.titulo-secao {
     font-family: 'Capriola', sans-serif;
 }
 
@@ -48,14 +60,22 @@ h6 {
     color: var(--cor-texto);
 }
 
-/* Caixa branca centralizada que envolve o formulário */
+/* Caixa branca centralizada com acabamento premium e sombra tridimensional realista */
 .container {
     max-width: 650px;
-    margin: 2rem auto;
+    margin: 0 auto 4rem;
     padding: 2.5rem;
     background-color: var(--cor-card-fundo);
-    border-radius: 12px;
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(155, 44, 44, 0.12);
+    /* Borda com leve toque de vinho */
+    border-radius: 20px;
+    /* SOMBRA EM CAMADAS: Destaca fortemente o card por cima do padrão xadrez */
+    box-shadow:
+        0 25px 50px -12px rgba(74, 20, 20, 0.15),
+        0 12px 24px -8px rgba(0, 0, 0, 0.06),
+        0 1px 4px rgba(0, 0, 0, 0.02);
+    position: relative;
+    z-index: 2;
 }
 
 /* ==========================================================================
@@ -63,22 +83,26 @@ h6 {
    ========================================================================== */
 header {
     text-align: center;
-    padding: 3rem 1rem 1.5rem;
-    border-bottom: var(--cor-texto-mutado) 2px solid;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    padding: 5rem 1rem 3.5rem;
+    background: transparent;
+    /* Permite que o tecido xadrez passe por trás */
 }
 
 header h1 {
     color: var(--cor-principal);
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
+    font-size: 3.2rem;
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.5px;
+    /* Adiciona um contorno suave para dar contraste extra caso o fundo mude */
+    text-shadow: 1px 1px 0px #FFFBF7, -1px -1px 0px #FFFBF7, 1px -1px 0px #FFFBF7, -1px 1px 0px #FFFBF7;
 }
 
 header p {
     color: var(--cor-texto-mutado);
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     max-width: 600px;
     margin: 0 auto;
+    font-weight: 500;
 }
 
 /* ==========================================================================
@@ -87,63 +111,72 @@ header p {
 #formulario-cardapio {
     display: flex;
     flex-direction: column;
-    gap: 24px;
 }
 
-/* Alinhamento dos blocos com select (Estilo Alimentar e Habilidade) */
-#formulario-cardapio>div:not(.grupo-botao):not(.grupo-restricoes):not(.grupo-refeicoes) {
+/* Padronização dos blocos de perguntas */
+.grupo-dieta,
+.grupo-habilidade,
+.grupo-restricoes,
+.grupo-refeicoes {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 32px;
+    width: 100%;
 }
 
-#formulario-cardapio label {
+/* Títulos das Seções destacados na cor Vinho */
+#formulario-cardapio label,
+.titulo-secao {
+    font-family: 'Capriola', sans-serif;
     font-weight: 600;
-    color: var(--cor-texto);
-    font-size: 15px;
+    color: var(--cor-principal);
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    margin-bottom: 2px;
 }
 
-/* --- Estilização dos Selects --- */
+/* Estilização nítida e moderna dos Menus de Seleção (Selects) */
 #formulario-cardapio select {
     width: 100%;
-    padding: 12px 16px;
-    border: 1px solid #D1D5DB;
+    max-width: 380px;
+    padding: 13px 16px;
+    border: 1px solid #A0AEC0;
+    /* Cinza de alto contraste para destacar o campo */
     border-radius: 8px;
     background-color: #FFFFFF;
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
-    color: var(--cor-texto-mutado);
+    color: var(--cor-texto);
     outline: none;
     cursor: pointer;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    transition: all 0.2s ease;
     appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232C3E50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://w3.org' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239B2C2C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'></polyline></svg>");
     background-repeat: no-repeat;
-    background-position: right 12px center;
+    background-position: right 14px center;
     background-size: 16px;
+}
+
+#formulario-cardapio select:hover {
+    border-color: var(--cor-principal);
 }
 
 #formulario-cardapio select:focus {
     border-color: var(--cor-principal);
-    box-shadow: 0 0 0 3px rgba(155, 44, 44, 0.15);
+    box-shadow: 0 0 0 4px rgba(155, 44, 44, 0.12);
 }
 
 /* --- Área de Restrições e Tipos de Refeição (Tags Modulares) --- */
 .grupo-restricoes,
 .grupo-refeicoes {
-    display: flex;
+    flex-direction: row !important;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-/* Força os rótulos de título a ficarem fixos no topo das tags */
-.grupo-restricoes>label,
-.grupo-refeicoes>label {
-    flex: 0 0 100%;
-    margin-bottom: 4px;
-}
-
-/* Estrutura interna invisível de cada tag */
 .grupo-restricoes>div,
 .grupo-refeicoes>div {
     position: relative;
@@ -151,7 +184,6 @@ header p {
     align-items: center;
 }
 
-/* Oculta os checkboxes mantendo a acessibilidade do clique */
 .grupo-restricoes>div input[type="checkbox"],
 .grupo-refeicoes>div input[type="checkbox"] {
     position: absolute;
@@ -163,18 +195,18 @@ header p {
     z-index: 2;
 }
 
-/* Estilo visual base das tags (Desmarcadas) */
+/* Tags Desmarcadas */
 .grupo-restricoes>div label,
 .grupo-refeicoes>div label {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto-mutado);
-    padding: 8px 16px;
-    border: 1px solid #E5E7EB;
+    background-color: #F7FAFC;
+    color: var(--cor-texto);
+    padding: 8px 18px;
+    border: 1px solid #E2E8F0;
     border-radius: 20px;
     font-size: 14px;
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
-    transition: all 0.2s ease;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     user-select: none;
     cursor: pointer;
     white-space: nowrap;
@@ -183,24 +215,31 @@ header p {
 /* Efeito Hover nas tags */
 .grupo-restricoes>div:hover label,
 .grupo-refeicoes>div:hover label {
-    background-color: #EAEAEA;
-    border-color: #D1D5DB;
-    color: var(--cor-texto);
+    background-color: #EDF2F7;
+    border-color: #CBD5E0;
+    transform: translateY(-1px);
 }
 
-/* Estado Ativado (Checked): Força o fundo vinho e o texto 100% branco */
+/* Estado Ativado (Checked) */
 #formulario-cardapio .grupo-restricoes>div input[type="checkbox"]:checked+label,
 #formulario-cardapio .grupo-refeicoes>div input[type="checkbox"]:checked+label {
     background-color: var(--cor-principal);
     border-color: var(--cor-principal);
     color: #FFFFFF !important;
     font-weight: 600;
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(155, 44, 44, 0.18);
 }
 
 /* --- Botão Principal --- */
+.grupo-botao {
+    width: 100%;
+    margin-top: 12px;
+}
+
 .grupo-botao button {
     width: 100%;
-    padding: 14px;
+    padding: 16px;
     background-color: var(--cor-principal);
     color: #FFFFFF;
     border: none;
@@ -209,95 +248,157 @@ header p {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
-    margin-top: 8px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(155, 44, 44, 0.15);
 }
 
 .grupo-botao button:hover {
     background-color: var(--cor-destaque);
+    box-shadow: 0 6px 18px rgba(197, 48, 48, 0.25);
+    transform: translateY(-1px);
 }
 
 .grupo-botao button:active {
-    transform: scale(0.98);
+    transform: scale(0.99);
 }
 
 /* ==========================================================================
-   5. SEÇÃO: RESULTADO DO CARDÁPIO
+   5. SEÇÃO: RESULTADO DO CARDÁPIO E LISTA DE COMPRAS
    ========================================================================== */
 #resultado-cardapio {
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
 .card-resultado {
-    border-top: 2px dashed #E5E7EB;
-    padding-top: 25px;
+    border-top: 2px dashed #E2E8F0;
+    padding-top: 30px;
 }
 
 .card-resultado h3 {
     font-size: 1.5rem;
     color: var(--cor-principal);
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     text-align: center;
 }
 
-.resumo-escolhas,
-.resumo-restricoes {
-    font-size: 0.9rem;
+.resumo-escolhas {
+    font-size: 0.95rem;
     color: var(--cor-texto-mutado);
     text-align: center;
-    margin-bottom: 8px;
+    margin-bottom: 24px;
 }
 
 .lista-refeicoes {
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-/* Blocos de resposta das refeições geradas */
-.item-refeicao {
-    background-color: var(--cor-fundo);
-    padding: 16px;
-    border-radius: 8px;
-    border-left: 4px solid var(--cor-principal);
-}
-
-.item-refeicao h4 {
-    margin-bottom: 4px;
-    color: var(--cor-texto);
-    font-size: 1.1rem;
-}
-
-.item-refeicao p {
-    font-size: 0.95rem;
-    color: #555;
-    margin-bottom: 8px;
+    gap: 14px;
 }
 
 .badge-tempo {
     display: inline-block;
     font-size: 0.8rem;
-    background-color: #EAEAEA;
-    color: var(--cor-texto-mutado);
-    padding: 4px 10px;
+    background-color: #EDF2F7;
+    color: var(--cor-texto);
+    padding: 4px 12px;
     border-radius: 12px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 /* Animação de Fade-In */
 .animate-fade-in {
-    animation: fadeIn 0.4s ease forwards;
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(10px);
+        transform: translateY(12px);
     }
 
     to {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ==========================================================================
+   6. ESTILIZAÇÃO DOS CARDS DE RESULTADO (MODERNO)
+   ========================================================================== */
+.lista-refeicoes,
+.bloco-lista-compras ul {
+    list-style: none;
+    padding: 0;
+}
+
+.item-refeicao-clicavel {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.01), 0 2px 4px -1px rgba(0, 0, 0, 0.01);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.item-refeicao-clicavel:hover {
+    transform: translateY(-2px);
+    border-color: var(--cor-principal);
+    box-shadow: 0 10px 20px -5px rgba(155, 44, 44, 0.08);
+}
+
+.tag-categoria-refeicao {
+    font-family: 'Capriola', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: #A0AEC0;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.titulo-prato-resultado {
+    font-size: 1.2rem;
+    color: var(--cor-texto);
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.bloco-lista-compras {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+}
+
+.bloco-lista-compras h4 {
+    font-family: 'Capriola', sans-serif;
+    color: var(--cor-principal);
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+}
+
+.item-compra-check {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid #EDF2F7;
+    font-size: 0.95rem;
+    color: #4A5568;
+    cursor: pointer;
+}
+
+.item-compra-check:last-child {
+    border-bottom: none;
+}
+
+.item-compra-check input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--cor-principal);
 }
